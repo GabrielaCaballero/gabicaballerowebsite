@@ -20,9 +20,13 @@ const About = () => {
               <div className="text-sm text-pink-300 mb-1">I'M A</div>
               <div className="text-white">product manager</div>
             </div>
-            <div className="text-left">
+            <div className="text-left mb-4">
               <div className="text-sm text-pink-300 mb-1">LIVING IN</div>
               <div className="text-white">london, uk.</div>
+            </div>
+            <div className="text-left">
+              <div className="text-sm text-pink-300 mb-1">FROM</div>
+              <div className="text-white">argentina</div>
             </div>
           </div>
         </div>
