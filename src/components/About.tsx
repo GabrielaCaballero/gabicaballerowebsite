@@ -22,7 +22,7 @@ const About = () => {
             </div>
             <div className="text-left">
               <div className="text-sm text-pink-300 mb-1">LIVING IN</div>
-              <div className="text-white">nashville, tn.</div>
+              <div className="text-white">london, uk.</div>
             </div>
           </div>
         </div>
