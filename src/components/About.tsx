@@ -14,11 +14,11 @@ const About = () => {
             />
             <div className="text-left">
               <div className="text-sm text-pink-300 mb-1">HELLO, I'M</div>
-              <h2 className="text-2xl font-bold text-white mb-4">mitch canter</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">gabriela caballero</h2>
             </div>
             <div className="text-left mb-4">
               <div className="text-sm text-pink-300 mb-1">I'M A</div>
-              <div className="text-white">director of engineering</div>
+              <div className="text-white">product manager</div>
             </div>
             <div className="text-left">
               <div className="text-sm text-pink-300 mb-1">LIVING IN</div>
@@ -27,7 +27,7 @@ const About = () => {
           </div>
         </div>
         <div className="text-2xl font-bold text-white mb-8">
-          mitch canter
+          gabriela caballero
         </div>
       </div>
 
@@ -36,7 +36,7 @@ const About = () => {
         <div className="space-y-4 text-left">
           <h1 className="text-5xl font-bold mb-8">
             <div className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-[#ff9bce] text-transparent bg-clip-text">
-              Director of Engineering.
+              Product Manager.
             </div>
             <div className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-[#ff9bce] text-transparent bg-clip-text">
               WordPress Developer.
@@ -47,7 +47,7 @@ const About = () => {
           </h1>
 
           <p className="text-lg mb-6">
-            Hi there! I'm Mitch Canter, the Director of Engineering for WebDevStudios. I'm a skilled people manager and WordPress Developer based in Nashville, TN. With years of experience leading cross-functional teams to scale, I am passionate about helping others improve their coding skills and achieve their professional goals.
+            Hi there! I'm Gabriela Caballero, a Product Manager based in Nashville, TN. With years of experience leading cross-functional teams to scale, I am passionate about helping others improve their skills and achieve their professional goals.
           </p>
 
           <p className="text-lg mb-8">
@@ -63,7 +63,7 @@ const About = () => {
           </p>
 
           <Button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-md">
-            Learn More About Mitch
+            Learn More About Gabriela
           </Button>
         </div>
       </div>
