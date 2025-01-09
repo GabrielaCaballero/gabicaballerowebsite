@@ -8,7 +8,7 @@ const Navigation = () => {
   const links = [
     { path: "/", label: "About" },
     { path: "/projects", label: "Projects" },
-    { path: "/blog", label: "Blog" },
+    { path: "/interviews", label: "Interviews" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -17,7 +17,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-xl font-bold text-primary hover:text-primary/80 transition-colors">
-            YourName
+            gabriela caballero
           </Link>
           <div className="flex gap-8">
             {links.map((link) => (
