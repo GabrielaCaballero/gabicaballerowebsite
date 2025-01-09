@@ -3,12 +3,42 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Phone, Mail, Linkedin, Youtube, Instagram } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const subject = `Contact from ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+    `;
+    
+    window.location.href = `mailto:lmgabrielac@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
     toast({
       title: "Message sent!",
       description: "Thank you for your message. I'll get back to you soon.",
@@ -102,19 +132,36 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
                 </label>
-                <Input id="name" required />
+                <Input 
+                  id="name" 
+                  required 
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Email
                 </label>
-                <Input id="email" type="email" required />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  required 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message
                 </label>
-                <Textarea id="message" required className="min-h-[150px]" />
+                <Textarea 
+                  id="message" 
+                  required 
+                  className="min-h-[150px]" 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                />
               </div>
               <Button type="submit" className="w-full">
                 Send Message
