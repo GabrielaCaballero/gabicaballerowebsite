@@ -27,6 +27,8 @@ const Projects = () => {
       role: "Product Manager - Youtube Shopping",
       location: "London, UK",
       period: "March 2024 - Ongoing",
+      image: "/lovable-uploads/7fa6c7eb-e83a-4639-92a7-13a9ba02e7c9.png",
+      blogLink: "https://blog.youtube/news-and-events/new-youtube-shopping-features/",
       responsibilities: [
         "Developed scalable, habit-forming shopping experiences integrated into YouTube's watch experience, including creator collections, and persistent entry points for channel stores.",
         "Defined the strategy for channels with stores on Youtube and developed a vision for future plans.",
@@ -40,6 +42,8 @@ const Projects = () => {
       role: "Product Manager - Google Sheets",
       location: "London, UK",
       period: "July 2022 - March 2024",
+      image: "/lovable-uploads/c9ac082d-e7ce-463d-9d1f-506e32891bd0.png",
+      blogLink: "https://workspaceupdates.googleblog.com/2024/05/tables-in-google-sheets.html",
       responsibilities: [
         "Developed and communicated the vision, strategy, and roadmap to secure buy-in from the director. Prioritized and executed the top-priority project, 'Tables', on Google Sheets, which increase our north-star metric by 5% and has engaged a team of +15 engineers.",
         "Led the execution and defined the beyond-MVP vision, strategy, and prioritization for Sheets Conditional Notifications with +5 engineers, leading to a 90% email open rate and 80% of user satisfaction.",
@@ -48,7 +52,6 @@ const Projects = () => {
       ],
       icon: <Building2 className="w-8 h-8 text-primary" />,
     },
-    // ... Additional experience entries follow the same pattern
   ];
 
   const containerVariants = {
@@ -124,6 +127,25 @@ const Projects = () => {
                   variants={itemVariants}
                   className="p-6 rounded-lg border border-border hover:border-primary transition-all duration-300"
                 >
+                  {exp.image && exp.blogLink && (
+                    <div className="mb-6">
+                      <a 
+                        href={exp.blogLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block hover:opacity-90 transition-opacity"
+                      >
+                        <img 
+                          src={exp.image} 
+                          alt={`${exp.company} project`} 
+                          className="w-full rounded-lg shadow-lg mb-2"
+                        />
+                        <p className="text-sm text-primary hover:text-primary/80 underline">
+                          Read more about this project
+                        </p>
+                      </a>
+                    </div>
+                  )}
                   <div className="flex items-start gap-4">
                     {exp.icon}
                     <div>
