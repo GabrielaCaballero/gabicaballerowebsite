@@ -9,9 +9,9 @@ const About = () => {
         <div>
           <div className="mb-8">
             <img
-              src="/lovable-uploads/bcb6a8b1-f5d2-411a-9684-4d1874c39783.png"
+              src="/lovable-uploads/2c341fe6-1e35-4457-b659-5312283682a4.png"
               alt="Profile"
-              className="rounded-full w-32 h-32 mb-6"
+              className="rounded-full w-32 h-32 mb-6 object-cover"
             />
             <div className="text-left">
               <div className="text-sm text-pink-300 mb-1">HELLO, I'M</div>
@@ -44,27 +44,19 @@ const About = () => {
               Product Manager.
             </div>
             <div className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-[#ff9bce] text-transparent bg-clip-text">
-              WordPress Developer.
+              Data and AI
             </div>
             <div className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-[#ff9bce] text-transparent bg-clip-text">
-              Content Creator.
+              enthusiastic.
             </div>
           </h1>
 
           <p className="text-lg mb-6">
-            Hi there! I'm Gabriela Caballero, a Product Manager based in Nashville, TN. With years of experience leading cross-functional teams to scale, I am passionate about helping others improve their skills and achieve their professional goals.
+            Hi there! I'm Gabriela Caballero, a Product Manager based in London, UK. With experience on both large consumer products and B2B products. Argentinian at heart, embracing the world's diversity. My endless curiosity and tech passion fuel my role as a product manager, solving problems obsessively.
           </p>
 
           <p className="text-lg mb-8">
-            In addition, I regularly{" "}
-            <a href="#" className="text-pink-400 hover:text-pink-300">
-              stream on Twitch
-            </a>{" "}
-            and produce video content for my{" "}
-            <a href="#" className="text-pink-400 hover:text-pink-300">
-              YouTube channel
-            </a>
-            .
+            My mission is to make a better and simpler world with the use of technology for the good and create a sense of belonging to everyone.
           </p>
 
           <Link to="/projects">
