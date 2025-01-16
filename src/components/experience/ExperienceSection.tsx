@@ -7,7 +7,7 @@ const experience = [
     role: "Product Manager - Youtube Shopping",
     location: "London, UK",
     period: "March 2024 - Ongoing",
-    image: "https://www.youtube.com/watch?v=k3NlQiF_yOY",
+    image: "https://verrier-handcrafted.com/cdn/shop/products/nnycmap_1280x1280.jpg?v=1610594940",
     blogLink: "https://blog.youtube/news-and-events/new-youtube-shopping-features/",
     responsibilities: [
       "Developed scalable, habit-forming shopping experiences integrated into YouTube's watch experience, including creator collections, and persistent entry points for channel stores.",
@@ -141,7 +141,7 @@ export function ExperienceSection() {
                     <img 
                       src={exp.image} 
                       alt={`${exp.company} project`} 
-                      className="w-full rounded-lg shadow-lg mb-2"
+                      className="w-full h-48 object-cover rounded-lg shadow-lg mb-2"
                     />
                     <p className="text-sm text-primary hover:text-primary/80 underline">
                       Read more about this project
@@ -151,7 +151,7 @@ export function ExperienceSection() {
                   <img 
                     src={exp.image} 
                     alt={`${exp.company} project`} 
-                    className="w-full rounded-lg shadow-lg mb-2"
+                    className="w-full h-48 object-cover rounded-lg shadow-lg mb-2"
                   />
                 )}
               </div>
