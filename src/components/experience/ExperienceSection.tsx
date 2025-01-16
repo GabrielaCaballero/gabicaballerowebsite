@@ -7,7 +7,7 @@ const experience = [
     role: "Product Manager - Youtube Shopping",
     location: "London, UK",
     period: "March 2024 - Ongoing",
-    image: "https://verrier-handcrafted.com/cdn/shop/products/nnycmap_1280x1280.jpg?v=1610594940",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVYff2fMULbIwnZWV-nODY845-MTZci9S81Q&s",
     blogLink: "https://blog.youtube/news-and-events/new-youtube-shopping-features/",
     responsibilities: [
       "Developed scalable, habit-forming shopping experiences integrated into YouTube's watch experience, including creator collections, and persistent entry points for channel stores.",
