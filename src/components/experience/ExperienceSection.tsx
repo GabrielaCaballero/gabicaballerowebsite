@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 
@@ -37,10 +38,11 @@ const experience = [
       role: "Associate Product Manager I - Google Maps",
       location: "New York, USA",
       period: "June 2021 - July 2022",
-      image: "https://blog.google/products/maps/gemini-google-maps-navigation-updates/",
+      image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Navigation.width-1300.format-webp.webp",
+      blogLink: "https://blog.google/products/maps/gemini-google-maps-navigation-updates/",
       responsibilities: [
         "Launched a Language Picker Promo in Google Maps for all users in India that led to a 12% increase in Indic Languages MAU",
-        "Defined, pitched, and launched a new photo carousel in Google Maps that leveraged ML to detect photos of Services “menus” which led to a 20% interaction rate and increased our metrics by 2-5%",
+        "Defined, pitched, and launched a new photo carousel in Google Maps that leveraged ML to detect photos of Services "menus" which led to a 20% interaction rate and increased our metrics by 2-5%",
         "Conceptualized 2022 strategy for the Maps Search Content team by aligning engineers and designers in the group and conducting experimentation and user interviews.",
       ],
       icon: <Building2 className="w-8 h-8 text-primary" />,
@@ -50,10 +52,10 @@ const experience = [
       role: "Data Researcher",
       location: "Remote, USA",
       period: "January 2021 - May 2021",
-      image: "https://laughingsquid.com/wp-content/uploads/2013/01/NYC-Neighborhood-Map.jpg",
+      image: "https://verrier-handcrafted.com/cdn/shop/products/nnycmap_1280x1280.jpg?v=1610594940",
       responsibilities: [
         "Designed and implemented cleaning data processes that joined multiple data sources, simplifying the data analysis process and reducing data process times by 20%",
-        "Uncovered essential insights from data using R and data visualization tools that were used in the publication of the State of New York City’s Housing and Neighborhoods in 2020.",
+        "Uncovered essential insights from data using R and data visualization tools that were used in the publication of the State of New York City's Housing and Neighborhoods in 2020.",
       ],
       icon: <Building2 className="w-8 h-8 text-primary" />,
     },
@@ -87,7 +89,7 @@ const experience = [
       location: "Cordoba, Argentina",
       period: "April 2018 - August 2018",
       responsibilities: [
-        "Developed new functionalities for the Disney Parks website cart module to simplify a buyer’s cart ID to seamlessly allow buyers to navigate from online to offline purchasing channels.",
+        "Developed new functionalities for the Disney Parks website cart module to simplify a buyer's cart ID to seamlessly allow buyers to navigate from online to offline purchasing channels.",
         "Designed and implemented an automated cart ID storage and deletion procedure, saving MySql database servers.",
         "Identified and quickly resolved to live daily reported issues of the cart module by analyzing logs, debugging code, and producing JMeter scripts",
       ],
