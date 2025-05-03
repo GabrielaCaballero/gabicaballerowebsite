@@ -42,7 +42,7 @@ const experience = [
       blogLink: "https://blog.google/products/maps/gemini-google-maps-navigation-updates/",
       responsibilities: [
         "Launched a Language Picker Promo in Google Maps for all users in India that led to a 12% increase in Indic Languages MAU",
-        "Defined, pitched, and launched a new photo carousel in Google Maps that leveraged ML to detect photos of Services "menus" which led to a 20% interaction rate and increased our metrics by 2-5%",
+        "Defined, pitched, and launched a new photo carousel in Google Maps that leveraged ML to detect photos of Services \"menus\" which led to a 20% interaction rate and increased our metrics by 2-5%",
         "Conceptualized 2022 strategy for the Maps Search Content team by aligning engineers and designers in the group and conducting experimentation and user interviews.",
       ],
       icon: <Building2 className="w-8 h-8 text-primary" />,
