@@ -38,7 +38,7 @@ const experience = [
       role: "Associate Product Manager I - Google Maps",
       location: "New York, USA",
       period: "June 2021 - July 2022",
-      image: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Navigation.width-1300.format-webp.webp",
+      image: "https://blog.google/static/images/products/maps/navigation-2-beta/Google_Maps_Navigation_beta_demo_1600.jpg",
       blogLink: "https://blog.google/products/maps/gemini-google-maps-navigation-updates/",
       responsibilities: [
         "Launched a Language Picker Promo in Google Maps for all users in India that led to a 12% increase in Indic Languages MAU",
