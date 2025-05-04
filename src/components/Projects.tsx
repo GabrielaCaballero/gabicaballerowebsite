@@ -1,9 +1,13 @@
+
 import { motion } from "framer-motion";
 import { EducationSection } from "./education/EducationSection";
 import { ExperienceSection } from "./experience/ExperienceSection";
 import { VolunteeringSection } from "./volunteering/VolunteeringSection";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Projects = () => {
+  const isMobile = useIsMobile();
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -15,8 +19,8 @@ const Projects = () => {
   };
 
   return (
-    <section className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-6">
+    <section className={`min-h-screen ${isMobile ? 'pt-20' : 'pt-24'} pb-16 mobile-padding`}>
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"
           animate="visible"

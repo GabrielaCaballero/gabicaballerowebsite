@@ -1,7 +1,8 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -39,4 +40,68 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Custom card styles */
+.card-glow {
+  box-shadow: 0 0 15px rgba(255, 155, 206, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 155, 206, 0.5);
+}
+
+/* Gradient text animations */
+.gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
 }

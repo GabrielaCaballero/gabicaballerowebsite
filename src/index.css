@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +11,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 317.2 91.2% 80.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -35,5 +36,66 @@
 
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1f2c;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ff9bce;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff73bb;
+  }
+  
+  /* Grid layouts */
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 2rem;
+  }
+  
+  /* Image styles */
+  .image-hover-zoom {
+    overflow: hidden;
+  }
+  
+  .image-hover-zoom img {
+    transition: transform 0.5s ease;
+  }
+  
+  .image-hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Card styles */
+  .fancy-border {
+    position: relative;
+  }
+  
+  .fancy-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff9bce, #ffdee2);
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .fancy-border:hover::before {
+    opacity: 1;
   }
 }
