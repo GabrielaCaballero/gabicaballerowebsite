@@ -6,7 +6,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirect to the About page which is our main landing page
+    // Redirect to the main landing page
     navigate('/');
   }, [navigate]);
 

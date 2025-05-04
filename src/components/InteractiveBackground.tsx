@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Atom, Globe, Database, ChartBar, Flag } from 'lucide-react';
+import { Atom, Globe, Database, ChartBar } from 'lucide-react';
 
 const InteractiveBackground = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,10 +33,6 @@ const InteractiveBackground = () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-  
-  // Argentina flag colors
-  const argentinaBlue = "#75AADB";
-  const argentinaWhite = "#FFFFFF";
 
   return (
     <div ref={containerRef} className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -45,7 +41,7 @@ const InteractiveBackground = () => {
         <Globe className="interactive-element w-full h-full max-w-[800px] text-primary/30" data-depth="0.1" />
       </div>
       
-      {/* Argentina flag elements */}
+      {/* Argentina flag elements - now in background only, not next to title */}
       <div className="interactive-element absolute top-[10%] right-[20%] w-32 h-20 opacity-30 hidden md:block" data-depth="0.3">
         <div className="relative w-full h-full">
           <div className="absolute inset-0 bg-gradient-to-b from-[#75AADB] via-white to-[#75AADB] rounded-md"></div>
@@ -59,28 +55,41 @@ const InteractiveBackground = () => {
         </div>
       </div>
       
-      <Flag 
-        className="interactive-element absolute top-[15%] right-[15%] w-16 h-16 text-[#75AADB] opacity-50 hidden md:block" 
-        data-depth="0.4" 
-      />
-      
       {/* Tech and data elements */}
-      <Atom 
-        className="interactive-element absolute bottom-[20%] left-[15%] w-24 h-24 text-pink-300/30" 
-        data-depth="0.2" 
-      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.3, scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
+      >
+        <Atom 
+          className="interactive-element absolute bottom-[20%] left-[15%] w-24 h-24 text-pink-300/30" 
+          data-depth="0.2" 
+        />
+      </motion.div>
       
-      <Database 
-        className="interactive-element absolute top-[25%] left-[20%] w-16 h-16 text-primary/30" 
-        data-depth="0.3" 
-      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.3, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+      >
+        <Database 
+          className="interactive-element absolute top-[25%] left-[20%] w-16 h-16 text-primary/30" 
+          data-depth="0.3" 
+        />
+      </motion.div>
       
-      <ChartBar 
-        className="interactive-element absolute bottom-[30%] right-[25%] w-20 h-20 text-secondary/40" 
-        data-depth="0.25" 
-      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.4, ease: [0.33, 1, 0.68, 1] }}
+      >
+        <ChartBar 
+          className="interactive-element absolute bottom-[30%] right-[25%] w-20 h-20 text-secondary/40" 
+          data-depth="0.25" 
+        />
+      </motion.div>
       
-      {/* Floating data particles */}
+      {/* Floating data particles with improved animations */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -92,21 +101,29 @@ const InteractiveBackground = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
+            initial={{ opacity: 0, scale: 0 }}
             animate={{
               y: [0, -30, 0],
               opacity: [0.2, 0.7, 0.2],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: Math.random() * 8 + 4,
               repeat: Infinity,
               delay: Math.random() * 5,
+              ease: [0.33, 1, 0.68, 1]
             }}
           />
         ))}
       </div>
       
-      {/* Light gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent to-background/80"></div>
+      {/* Light gradient overlay with subtle animation */}
+      <motion.div 
+        className="absolute inset-0 bg-gradient-radial from-transparent to-background/80"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: [0.33, 1, 0.68, 1] }}
+      />
     </div>
   );
 };
