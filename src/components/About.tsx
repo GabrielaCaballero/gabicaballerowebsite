@@ -96,7 +96,7 @@ const About = () => {
           </motion.p>
 
           <motion.p variants={itemVariants} className="text-lg mb-8">
-            My mission is to make a better and simpler world with the use of technology for the good and create a sense of belonging to everyone.
+            <span className="font-semibold text-pink-300">My mission:</span> 🌐 To create bridges between technology and humanity by simplifying the complex, telling meaningful stories, and designing for real human needs.
           </motion.p>
 
           <motion.div variants={itemVariants}>
