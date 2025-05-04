@@ -41,20 +41,6 @@ const InteractiveBackground = () => {
         <Globe className="interactive-element w-full h-full max-w-[800px] text-primary/30" data-depth="0.1" />
       </div>
       
-      {/* Argentina flag elements - now in background only, not next to title */}
-      <div className="interactive-element absolute top-[10%] right-[20%] w-32 h-20 opacity-30 hidden md:block" data-depth="0.3">
-        <div className="relative w-full h-full">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#75AADB] via-white to-[#75AADB] rounded-md"></div>
-          <motion.div 
-            className="absolute inset-0 flex items-center justify-center"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          >
-            <div className="w-8 h-8 bg-[#fcbf49] rounded-full"></div>
-          </motion.div>
-        </div>
-      </div>
-      
       {/* Tech and data elements */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
