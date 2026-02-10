@@ -310,7 +310,7 @@ export default function TimelineExperience() {
           transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-4">
             The Flight Path
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

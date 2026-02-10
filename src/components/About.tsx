@@ -25,7 +25,7 @@ const About = () => {
               <p className="text-primary font-bold text-sm uppercase tracking-[0.2em]">
                 Technical Product Manager
               </p>
-              <h1 className="text-6xl md:text-8xl font-black leading-[0.95] tracking-tight">
+              <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight">
                 PRODUCT{" "}
                 <br />
                 <span className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-primary bg-clip-text text-transparent">
