@@ -32,7 +32,7 @@ const TIMELINE_DATA = [
       "Interactive TV Shopping: +6000% lift in clicks.",
     ],
     humor:
-      "Living in Zurich has made her appreciate nature more—she actually takes pictures of cows and flowers now!",
+      "Living in Zurich has made her appreciate nature more—she actually takes pictures of cows and flowers now! She spends her time running, exploring the mountains, swimming in the lake during summer, and indulging in plenty of local cheese and chocolate.",
     projects: [
       {
         name: "SVC v6 & PDM v9 Strategy",
@@ -87,7 +87,7 @@ const TIMELINE_DATA = [
       "Apps Script Roadmap: Integrated Generative AI.",
     ],
     humor:
-      "Loves West End shows, 'smelly pubs', and the heavenly cream on scones.",
+      "As a Harry Potter fan, she fell in love with London life—West End shows, Italian pasta, and running through the parks. She especially enjoyed \"smelly pubs\" with excellent beer and the heavenly cream the British put on their scones during tea time.",
     projects: [
       {
         name: "Tables in Google Sheets",
@@ -138,7 +138,7 @@ const TIMELINE_DATA = [
       "Data Researcher @ Furman Center: Reduced processing times by 20%.",
     ],
     humor:
-      "Expert in extreme rat-watching and realizing 'XOXO' stands for 'Exhausted On X-mas, Okay?'.",
+      "Gabriela initially found NYC as tough as a stale dollar slice. As a Gossip Girl fan, she eventually learned to love the city, realizing that \"XOXO\" actually stands for \"Exhausted On X-mas, Okay?\" She made it home, trading skyscraper sightseeing for the real local sport: extreme rat-watching.",
     projects: [
       {
         name: "Maps Visual Search",
@@ -180,13 +180,13 @@ const TIMELINE_DATA = [
     id: "cordoba",
     location: "🇦🇷 Cordoba, Argentina",
     period: "Foundations",
-    role: "Systems Engineer & Tech Lead",
+    role: "Systems Engineer & Fulbright Scholar",
     color: "from-blue-600 to-sky-500",
     iconName: "graduation" as const,
     summary:
       "Winning the Fulbright scholarship and technical leadership at Disney Parks.",
     bgImage:
-      "https://images.unsplash.com/photo-1590059516316-2da909249704?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&q=80&w=1200",
     achievements: [
       "Fulbright Scholar: Selected nationwide.",
       "Disney Parks Tech Lead: Managed team of 6.",
@@ -476,7 +476,7 @@ export default function TimelineExperience() {
                             <div className="flex gap-4 overflow-x-auto pb-2">
                               {era.lifePhotos.map((img, i) => (
                                 <div key={i} className="w-48 h-32 rounded-2xl overflow-hidden shrink-0 border border-border">
-                                  <img src={img} alt={`${era.location} life`} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400"; }} />
+                                  <img src={img} alt={`${era.location} life`} className={`w-full h-full object-cover ${i === 0 && era.id === 'zurich' ? 'object-top' : 'object-center'}`} onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400"; }} />
                                 </div>
                               ))}
                             </div>
