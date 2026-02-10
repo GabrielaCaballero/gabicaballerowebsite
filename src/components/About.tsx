@@ -62,7 +62,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-[40px] blur-3xl" />
               <img
-                src="/lovable-uploads/2c341fe6-1e35-4457-b659-5312283682a4.png"
+                src="/lovable-uploads/gabriela-about.png"
                 alt="Gabriela Caballero"
                 className="relative w-full max-w-md h-auto aspect-[3/4] rounded-[40px] object-cover border-2 border-border shadow-2xl"
               />
@@ -77,10 +77,10 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-card/60 backdrop-blur-sm border border-border rounded-3xl p-8 hover:border-primary/40 transition-all"
+              className="bg-card/60 backdrop-blur-sm border border-border rounded-3xl p-8 hover:border-primary/40 transition-all group"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <Sparkles className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-amber-400/20">
+                <Sparkles className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-amber-400 group-hover:fill-amber-400" />
               </div>
               <h3 className="text-xl font-black mb-3 uppercase tracking-wide">My Mission</h3>
               <p className="text-muted-foreground leading-relaxed italic">
