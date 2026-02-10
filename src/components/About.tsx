@@ -64,7 +64,7 @@ const About = () => {
               <img
                 src="/lovable-uploads/gabriela-about.png"
                 alt="Gabriela Caballero"
-                className="relative w-full max-w-md h-auto aspect-[3/4] rounded-[40px] object-cover border-2 border-border shadow-2xl"
+                className="relative w-full max-w-md h-auto aspect-[3/4] rounded-[40px] object-cover border-2 border-border shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
               />
             </motion.div>
           </div>
