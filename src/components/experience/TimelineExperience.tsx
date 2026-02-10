@@ -320,164 +320,161 @@ export default function TimelineExperience() {
 
         {/* Timeline */}
         <div className="space-y-16 relative">
-          {TIMELINE_DATA.map((era, idx) => (
-            <motion.section
-              key={era.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative"
-            >
-              {/* Background image */}
-              <div
-                className="absolute inset-0 rounded-3xl overflow-hidden -z-10 opacity-10"
-                style={{
-                  backgroundImage: `url(${era.bgImage})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
+          {TIMELINE_DATA.map((era, idx) => {
+            const totalItems = TIMELINE_DATA.length;
+            const threshold = idx / (totalItems - 1);
+            const isActive =
+              (idx === 0 && scrollProgress < 0.15) ||
+              (idx === totalItems - 1 && scrollProgress > 0.85) ||
+              Math.abs(scrollProgress - threshold) < 0.15;
 
-              <div className="p-6 md:p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm">
-                {/* Header row */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${era.color} flex items-center justify-center text-white shadow-lg`}
-                    >
-                      {getIcon(era.iconName)}
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground font-mono uppercase tracking-widest">
-                        {era.period}
-                      </p>
-                      <h2 className="text-xl font-bold">{era.role}</h2>
-                      <p className="text-sm text-muted-foreground">
-                        {era.location}
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() =>
-                      setDiveDeeperId(diveDeeperId === era.id ? null : era.id)
-                    }
-                    className={`px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all ${
-                      diveDeeperId === era.id
-                        ? "bg-primary text-primary-foreground shadow-lg"
-                        : "bg-muted text-foreground hover:bg-muted/80"
+            return (
+              <motion.section
+                key={era.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="relative"
+              >
+                <div
+                  className={`p-6 md:p-10 rounded-3xl border relative overflow-hidden transition-all duration-700 ${
+                    isActive
+                      ? "border-primary/40 shadow-xl shadow-primary/5"
+                      : "border-border"
+                  }`}
+                >
+                  {/* Background image — visible when active */}
+                  <div
+                    className={`absolute inset-0 transition-opacity duration-700 ${
+                      isActive ? "opacity-30" : "opacity-0"
                     }`}
-                  >
-                    {diveDeeperId === era.id ? "CLOSE" : "DIVE DEEPER"}
-                  </button>
-                </div>
+                    style={{
+                      backgroundImage: `url(${era.bgImage})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                  {/* Gradient overlay for readability */}
+                  <div className={`absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 transition-opacity duration-700 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`} />
+                  {/* Fallback bg when not active */}
+                  <div className={`absolute inset-0 bg-card/50 backdrop-blur-sm transition-opacity duration-700 ${
+                    isActive ? "opacity-0" : "opacity-100"
+                  }`} />
 
-                {/* Content grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-                  <div className="md:col-span-2">
-                    <p className="text-muted-foreground mb-4">{era.summary}</p>
-                    <div className="space-y-2">
-                      {era.achievements.map((item, i) => (
-                        <p key={i} className="text-sm text-muted-foreground">
-                          • {item}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="bg-muted/30 rounded-2xl p-4 border border-border">
-                    <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2">
-                      Personal Side
-                    </p>
-                    <p className="text-sm italic text-muted-foreground">
-                      "{era.humor}"
-                    </p>
-                  </div>
-                </div>
-
-                {/* Dive Deeper */}
-                {diveDeeperId === era.id && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="border-t border-border pt-6 mt-4 space-y-8"
-                  >
-                    {/* Projects */}
-                    <div>
-                      <h3 className="text-lg font-bold mb-4 text-primary">
-                        Strategic Deep Dive
-                      </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {era.projects.map((proj) => (
-                          <div
-                            key={proj.name}
-                            className="bg-muted/20 rounded-2xl p-5 border border-border"
-                          >
-                            <h4 className="font-bold text-sm mb-2">
-                              {proj.name}
-                            </h4>
-                            <p className="text-xs text-muted-foreground leading-relaxed">
-                              {proj.details}
-                            </p>
-                          </div>
-                        ))}
+                  {/* Content */}
+                  <div className="relative z-10">
+                    {/* Header row */}
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${era.color} flex items-center justify-center text-white shadow-lg transition-transform duration-500 ${isActive ? "scale-110" : ""}`}
+                        >
+                          {getIcon(era.iconName)}
+                        </div>
+                        <div>
+                          <p className="text-xs text-primary font-mono uppercase tracking-widest">
+                            {era.period}
+                          </p>
+                          <h2 className="text-xl font-bold">{era.role}</h2>
+                          <p className="text-sm text-muted-foreground">
+                            {era.location}
+                          </p>
+                        </div>
                       </div>
+                      <button
+                        onClick={() =>
+                          setDiveDeeperId(diveDeeperId === era.id ? null : era.id)
+                        }
+                        className={`px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all ${
+                          diveDeeperId === era.id
+                            ? "bg-primary text-primary-foreground shadow-lg"
+                            : "bg-muted text-foreground hover:bg-muted/80"
+                        }`}
+                      >
+                        {diveDeeperId === era.id ? "CLOSE" : "DIVE DEEPER"}
+                      </button>
                     </div>
 
-                    {/* Press */}
-                    {era.press && (
-                      <div>
-                        <h3 className="text-lg font-bold mb-4 text-primary">
-                          Public Recognition
-                        </h3>
+                    {/* Content grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+                      <div className="md:col-span-2">
+                        <p className="text-muted-foreground mb-4">{era.summary}</p>
                         <div className="space-y-2">
-                          {era.press.map((p, i) => (
-                            <a
-                              key={i}
-                              href={p.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-between p-3 rounded-xl bg-muted/20 border border-border hover:border-primary/40 transition-all group"
-                            >
-                              <span className="text-sm">{p.title}</span>
-                              <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                            </a>
+                          {era.achievements.map((item, i) => (
+                            <p key={i} className="text-sm text-muted-foreground">
+                              • {item}
+                            </p>
                           ))}
                         </div>
                       </div>
-                    )}
+                      <div className={`rounded-2xl p-4 border transition-all duration-500 ${
+                        isActive ? "bg-card/60 border-primary/20 backdrop-blur-md" : "bg-muted/30 border-border"
+                      }`}>
+                        <p className="text-xs text-primary uppercase tracking-widest mb-2 font-mono">
+                          Personal Side
+                        </p>
+                        <p className="text-sm italic text-muted-foreground">
+                          "{era.humor}"
+                        </p>
+                      </div>
+                    </div>
 
-                    {/* Life Photos */}
-                    {era.lifePhotos && (
-                      <div>
-                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-primary">
-                          <Camera className="w-5 h-5" /> Life Highlights
-                        </h3>
-                        <div className="flex gap-4 overflow-x-auto pb-2">
-                          {era.lifePhotos.map((img, i) => (
-                            <div
-                              key={i}
-                              className="w-48 h-32 rounded-2xl overflow-hidden shrink-0 border border-border"
-                            >
-                              <img
-                                src={img}
-                                alt={`${era.location} life`}
-                                className="w-full h-full object-cover"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src =
-                                    "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400";
-                                }}
-                              />
-                            </div>
-                          ))}
+                    {/* Dive Deeper */}
+                    {diveDeeperId === era.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="border-t border-border pt-6 mt-4 space-y-8"
+                      >
+                        <div>
+                          <h3 className="text-lg font-bold mb-4 text-primary">Strategic Deep Dive</h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {era.projects.map((proj) => (
+                              <div key={proj.name} className="bg-muted/20 rounded-2xl p-5 border border-border">
+                                <h4 className="font-bold text-sm mb-2">{proj.name}</h4>
+                                <p className="text-xs text-muted-foreground leading-relaxed">{proj.details}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                        {era.press && (
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-primary">Public Recognition</h3>
+                            <div className="space-y-2">
+                              {era.press.map((p, i) => (
+                                <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-3 rounded-xl bg-muted/20 border border-border hover:border-primary/40 transition-all group">
+                                  <span className="text-sm">{p.title}</span>
+                                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {era.lifePhotos && (
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-primary">
+                              <Camera className="w-5 h-5" /> Life Highlights
+                            </h3>
+                            <div className="flex gap-4 overflow-x-auto pb-2">
+                              {era.lifePhotos.map((img, i) => (
+                                <div key={i} className="w-48 h-32 rounded-2xl overflow-hidden shrink-0 border border-border">
+                                  <img src={img} alt={`${era.location} life`} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400"; }} />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
                     )}
-                  </motion.div>
-                )}
-              </div>
-            </motion.section>
-          ))}
+                  </div>
+                </div>
+              </motion.section>
+            );
+          })}
         </div>
       </div>
     </div>
