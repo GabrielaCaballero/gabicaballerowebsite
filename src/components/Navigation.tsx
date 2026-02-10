@@ -13,8 +13,8 @@ const Navigation = () => {
 
   const links = [
     { path: "/", label: "About" },
-    { path: "/projects", label: "Projects" },
-    { path: "/interviews", label: "Interviews" },
+    { path: "/projects", label: "Experience" },
+    { path: "/interviews", label: "Hall of Fame" },
     { path: "/contact", label: "Contact" },
   ];
 
