@@ -13,7 +13,13 @@ const About = () => {
       {showGame && <LatentNavigator onClose={() => setShowGame(false)} />}
 
       <section className="min-h-screen pt-24 pb-16 animate-fade-in relative z-10">
-        <div className="container mx-auto px-6">
+        {/* Pink ambient background glow */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-0 right-0 w-[70%] h-[80%] bg-gradient-radial from-primary/20 via-primary/5 to-transparent opacity-60" />
+          <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-40" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           {/* Hero */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <motion.div
@@ -28,7 +34,7 @@ const About = () => {
               <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] tracking-tight">
                 PRODUCT{" "}
                 <br />
-                <span className="bg-gradient-to-r from-[#7ee787] via-[#ffdee2] to-primary bg-clip-text text-transparent">
+                <span className="text-foreground">
                   STRATEGY.
                 </span>
               </h1>
@@ -60,7 +66,36 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
               className="relative flex justify-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-[40px] blur-3xl" />
+              {/* Pulsing pink glow behind image */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-[85%] h-[85%] rounded-[40px] bg-primary/30 blur-3xl"
+                  animate={{
+                    scale: [1, 1.08, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-[70%] h-[70%] rounded-[40px] bg-primary/20 blur-2xl"
+                  animate={{
+                    scale: [1.05, 0.95, 1.05],
+                    opacity: [0.4, 0.6, 0.4],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                />
+              </div>
               <img
                 src="/lovable-uploads/gabriela-about.png"
                 alt="Gabriela Caballero"
@@ -82,7 +117,7 @@ const About = () => {
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-amber-400/20">
                 <Sparkles className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-amber-400 group-hover:fill-amber-400" />
               </div>
-              <h3 className="text-xl font-black mb-3 uppercase tracking-wide">My Mission</h3>
+              <h3 className="text-xl font-display font-bold mb-3 uppercase tracking-wide">My Mission</h3>
               <p className="text-muted-foreground leading-relaxed italic">
                 "To create bridges between technology and humanity by simplifying
                 the complex and telling meaningful stories."
@@ -97,29 +132,6 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-card/60 backdrop-blur-sm border border-border rounded-3xl p-8 hover:border-primary/40 transition-all group overflow-hidden relative"
             >
-              {/* Rocket launch animation */}
-              <div className="absolute bottom-0 right-6 flex flex-col items-center pointer-events-none">
-                {/* Flame / exhaust trail */}
-                <motion.div
-                  className="w-3 rounded-full bg-gradient-to-t from-orange-500 via-amber-400 to-transparent opacity-0 group-hover:opacity-80"
-                  initial={{ height: 0, opacity: 0 }}
-                  whileInView={{ height: 60, opacity: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originY: 1 }}
-                />
-                {/* Rocket icon that launches upward on hover */}
-                <motion.div
-                  className="text-muted-foreground/20 group-hover:text-primary transition-colors duration-300"
-                  initial={{ y: 0 }}
-                  whileHover={{ y: -200 }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                >
-                  <Rocket className="w-10 h-10 rotate-[-45deg]" />
-                </motion.div>
-              </div>
-
-              {/* Hover-triggered rocket launch */}
               <style>{`
                 .vision-card-rocket {
                   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
@@ -150,7 +162,7 @@ const About = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <Rocket className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-black mb-3 uppercase tracking-wide">Vision Statement</h3>
+                <h3 className="text-xl font-display font-bold mb-3 uppercase tracking-wide">Vision Statement</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   I envision a future where technology evolves into an intuitive,
                   active partner, anticipating our needs and augmenting human
