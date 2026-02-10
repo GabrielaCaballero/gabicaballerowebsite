@@ -5,9 +5,10 @@ import {
   Linkedin,
   Youtube,
   Instagram,
-  Newspaper,
-  MessageSquare,
+  Send,
+  Users,
   ExternalLink,
+  BookOpen,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -22,75 +23,101 @@ const Contact = () => {
     });
   };
 
-  const socials = [
+  const channels = [
     {
-      icon: <Linkedin className="w-8 h-8" />,
-      name: "LinkedIn",
+      icon: <Mail className="w-7 h-7" />,
+      label: "COPY EMAIL",
+      action: () => handleCopy("lmgabrielac@gmail.com", "Email"),
+    },
+    {
+      icon: <Phone className="w-7 h-7" />,
+      label: "COPY PHONE",
+      action: () => handleCopy("+4407599623358", "Phone"),
+    },
+    {
+      icon: <Linkedin className="w-7 h-7" />,
+      label: "LINKEDIN",
       url: "https://www.linkedin.com/in/gabrielacaballero/",
     },
     {
-      icon: <Youtube className="w-8 h-8" />,
-      name: "YouTube",
+      icon: <Youtube className="w-7 h-7" />,
+      label: "YOUTUBE",
       url: "https://www.youtube.com/channel/UCnZPgwSbAoaFxDB_sAUzv8A",
     },
     {
-      icon: <Instagram className="w-8 h-8" />,
-      name: "Instagram",
+      icon: <Instagram className="w-7 h-7" />,
+      label: "INSTAGRAM",
       url: "https://www.instagram.com/gabrielacaballer/",
+    },
+    {
+      icon: <BookOpen className="w-7 h-7" />,
+      label: "SUBSTACK",
+      url: "https://substack.com/@gabycaballero",
     },
   ];
 
   return (
     <section className="min-h-screen pt-24 pb-16 animate-fade-in">
       <div className="container mx-auto px-6 max-w-4xl">
+        {/* Hero icon */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
-            Connect.
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-pink-600 flex items-center justify-center mx-auto mb-8 shadow-lg shadow-primary/30">
+            <Send className="w-9 h-9 text-primary-foreground" />
+          </div>
+          <h1 className="text-6xl md:text-8xl font-display font-bold tracking-tight text-foreground mb-6">
+            CONNECT.
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg italic">
             "Let's build the future of human-AI collaboration."
           </p>
         </motion.div>
 
-        {/* Copy buttons + Social links */}
+        {/* Channel grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex flex-wrap justify-center gap-4 mb-20 mt-12"
         >
-          <button
-            onClick={() => handleCopy("lmgabrielac@gmail.com", "Email")}
-            className="bg-card/50 border border-border p-8 rounded-[40px] hover:scale-105 transition-all text-center min-w-[180px] group shadow-xl hover:border-primary/40"
-          >
-            <Mail className="w-8 h-8 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-            <p className="text-xs text-muted-foreground">Copy Email</p>
-          </button>
-          <button
-            onClick={() => handleCopy("+4407599623358", "Phone")}
-            className="bg-card/50 border border-border p-8 rounded-[40px] hover:scale-105 transition-all text-center min-w-[180px] group shadow-xl hover:border-primary/40"
-          >
-            <Phone className="w-8 h-8 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-            <p className="text-xs text-muted-foreground">Copy Phone</p>
-          </button>
-          {socials.map((social) => (
-            <a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card/50 border border-border p-8 rounded-[40px] hover:scale-105 transition-all text-center min-w-[180px] group shadow-xl hover:border-primary/40"
-            >
-              <div className="text-primary mx-auto mb-2 flex justify-center group-hover:scale-110 transition-transform">
-                {social.icon}
-              </div>
-              <p className="text-xs text-muted-foreground">{social.name}</p>
-            </a>
-          ))}
+          {channels.map((ch) => {
+            const inner = (
+              <>
+                <div className="text-primary mb-3 group-hover:scale-110 transition-transform">
+                  {ch.icon}
+                </div>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+                  {ch.label}
+                </p>
+              </>
+            );
+
+            if (ch.url) {
+              return (
+                <a
+                  key={ch.label}
+                  href={ch.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card/50 border border-border p-8 rounded-2xl hover:border-primary/40 hover:scale-105 transition-all text-center min-w-[150px] group"
+                >
+                  {inner}
+                </a>
+              );
+            }
+            return (
+              <button
+                key={ch.label}
+                onClick={ch.action}
+                className="bg-card/50 border border-border p-8 rounded-2xl hover:border-primary/40 hover:scale-105 transition-all text-center min-w-[150px] group"
+              >
+                {inner}
+              </button>
+            );
+          })}
         </motion.div>
 
         {/* Feedback Hub */}
@@ -100,18 +127,22 @@ const Contact = () => {
           transition={{ delay: 0.4 }}
           className="flex justify-center"
         >
-          <div className="bg-card/50 border border-border rounded-3xl p-8 text-center max-w-md hover:border-primary/40 transition-all">
-            <MessageSquare className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold mb-2">Feedback Hub</h3>
-            <p className="text-sm text-muted-foreground mb-4">
+          <div className="bg-card/50 border border-border rounded-3xl p-10 text-center max-w-lg hover:border-primary/40 transition-all">
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <Users className="w-7 h-7 text-primary" />
+            </div>
+            <h3 className="text-2xl font-display font-bold mb-3 uppercase tracking-wide">
+              Feedback Hub
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6">
               Please share <strong>anonymous feedback</strong> to help me grow
               as a professional and a person!
             </p>
             <a
-              href="https://substack.com/@gabycaballero"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdkVZ6rZoK6ei7lGyiYfolt8a017QfhMtpWhAuKDVLrMeQs1w/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-bold text-sm hover:bg-primary/90 transition-all"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-sm hover:bg-primary/90 transition-all uppercase tracking-widest"
             >
               SHARE FEEDBACK
               <ExternalLink className="w-4 h-4" />
