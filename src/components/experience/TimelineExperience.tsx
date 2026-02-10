@@ -65,7 +65,9 @@ const TIMELINE_DATA = [
       },
     ],
     lifePhotos: [
-      "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&q=80&w=600",
+      "/lovable-uploads/zurich-hiking.jpg",
+      "/lovable-uploads/zurich-cows.jpg",
+      "/lovable-uploads/zurich-team.jpg",
     ],
   },
   {
@@ -338,16 +340,16 @@ export default function TimelineExperience() {
                 className="relative"
               >
                 <div
-                  className={`p-6 md:p-10 rounded-3xl border relative overflow-hidden transition-all duration-700 ${
+                  className={`p-6 md:p-10 rounded-3xl border-2 relative overflow-hidden transition-all duration-700 ${
                     isActive
-                      ? "border-primary/40 shadow-xl shadow-primary/5"
-                      : "border-border"
+                      ? "border-primary shadow-xl shadow-primary/10"
+                      : "border-border/50"
                   }`}
                 >
                   {/* Background image — visible when active */}
                   <div
                     className={`absolute inset-0 transition-opacity duration-700 ${
-                      isActive ? "opacity-30" : "opacity-0"
+                      isActive ? "opacity-40" : "opacity-5"
                     }`}
                     style={{
                       backgroundImage: `url(${era.bgImage})`,
@@ -356,7 +358,7 @@ export default function TimelineExperience() {
                     }}
                   />
                   {/* Gradient overlay for readability */}
-                  <div className={`absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/50 transition-opacity duration-700 ${
+                  <div className={`absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 transition-opacity duration-700 ${
                     isActive ? "opacity-100" : "opacity-0"
                   }`} />
                   {/* Fallback bg when not active */}
