@@ -37,7 +37,7 @@ const TIMELINE_DATA = [
       {
         name: "SVC v6 & PDM v9 Strategy",
         details:
-          "Spearheaded strategy for YouTube's most complex classification systems. Navigated trade-offs to expand shopping corpus by +13% and increased coverage to 35.5% by retraining with 30x more videos.",
+          "Spearheaded strategy for YouTube's most complex classification systems. Navigated trade-offs to expand shopping corpus by +13% and increased coverage to 35.5%",
       },
       {
         name: "Timed Shopping Experiences",
@@ -116,8 +116,9 @@ const TIMELINE_DATA = [
       },
     ],
     lifePhotos: [
-      "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=600",
+      "/lovable-uploads/london-bigben.png",
+      "/lovable-uploads/london-pub.png",
+      "/lovable-uploads/london-hogwarts.png",
     ],
   },
   {
@@ -172,8 +173,9 @@ const TIMELINE_DATA = [
       },
     ],
     lifePhotos: [
-      "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=600",
-      "https://images.unsplash.com/photo-1518235506717-e1ed3306a89b?auto=format&fit=crop&q=80&w=600",
+      "/lovable-uploads/nyc-graduation.png",
+      "/lovable-uploads/nyc-grandcanyon.png",
+      "/lovable-uploads/nyc-family-graduation.png",
     ],
   },
   {
@@ -213,7 +215,9 @@ const TIMELINE_DATA = [
       },
     ],
     lifePhotos: [
-      "https://images.unsplash.com/photo-1590059516316-2da909249704?auto=format&fit=crop&q=80&w=600",
+      "/lovable-uploads/cordoba-university.png",
+      "/lovable-uploads/cordoba-graduation.png",
+      "/lovable-uploads/cordoba-mcafee.png",
     ],
   },
 ];
