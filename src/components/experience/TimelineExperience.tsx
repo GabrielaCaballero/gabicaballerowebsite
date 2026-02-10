@@ -35,9 +35,14 @@ const TIMELINE_DATA = [
       "Living in Zurich has made her appreciate nature more—she actually takes pictures of cows and flowers now! She spends her time running, exploring the mountains, swimming in the lake during summer, and indulging in plenty of local cheese and chocolate.",
     projects: [
       {
-        name: "SVC v6 & PDM v9 Strategy",
+        name: "Next-Gen Video Understanding",
         details:
-          "Spearheaded strategy for YouTube's most complex classification systems. Navigated trade-offs to expand shopping corpus by +13% and increased coverage to 35.5%",
+          "Orchestrating the vision and strategy for the next generation of video understanding models. This involves redefining the shopping video classifier, overhauling evaluation frameworks, and modernizing the underlying technology to scale detection capabilities.",
+      },
+      {
+        name: "Proprietary Product Detection",
+        details:
+          "Leading the evolution of proprietary product detection models by refining core definitions and evals. Pioneering the integration of Gemini and state-of-the-art visual-language models to drive higher precision and contextual relevance.",
       },
       {
         name: "Timed Shopping Experiences",
