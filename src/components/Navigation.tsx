@@ -14,7 +14,7 @@ const Navigation = () => {
   const links = [
     { path: "/", label: "About" },
     { path: "/projects", label: "Experience" },
-    { path: "/interviews", label: "Hall of Fame" },
+    { path: "/interviews", label: "Interviews" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -24,8 +24,9 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-sm z-50 border-b">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold text-primary hover:text-primary/80 transition-colors animate-float">
-            gabriela caballero
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-pink-600" />
+            <span className="text-xl font-display font-bold tracking-wide text-foreground">GABRIELA</span>
           </Link>
           
           {isMobile ? (
