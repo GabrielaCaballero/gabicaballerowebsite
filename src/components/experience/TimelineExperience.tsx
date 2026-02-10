@@ -260,6 +260,9 @@ export default function TimelineExperience() {
   const [diveDeeperId, setDiveDeeperId] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Auto-close dive deeper when section scrolls out of view
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -272,11 +275,19 @@ export default function TimelineExperience() {
         1
       );
       setScrollProgress(progress);
+
+      // Auto-close dive deeper if expanded section is no longer visible
+      if (diveDeeperId && sectionRefs.current[diveDeeperId]) {
+        const sectionRect = sectionRefs.current[diveDeeperId]!.getBoundingClientRect();
+        if (sectionRect.bottom < -100 || sectionRect.top > viewportHeight + 100) {
+          setDiveDeeperId(null);
+        }
+      }
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [diveDeeperId]);
 
   const travelerIcon = useMemo(() => {
     if (scrollProgress < 0.05) return <Rocket className="w-5 h-5 text-primary" />;
@@ -333,6 +344,7 @@ export default function TimelineExperience() {
             return (
               <motion.section
                 key={era.id}
+                ref={(el) => { sectionRefs.current[era.id] = el; }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -464,7 +476,7 @@ export default function TimelineExperience() {
                             <div className="flex gap-4 overflow-x-auto pb-2">
                               {era.lifePhotos.map((img, i) => (
                                 <div key={i} className="w-48 h-32 rounded-2xl overflow-hidden shrink-0 border border-border">
-                                  <img src={img} alt={`${era.location} life`} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400"; }} />
+                                  <img src={img} alt={`${era.location} life`} className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=400"; }} />
                                 </div>
                               ))}
                             </div>
