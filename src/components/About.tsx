@@ -40,10 +40,10 @@ const About = () => {
               </h1>
               <div className="flex items-center gap-0 text-sm text-muted-foreground border border-border rounded-full w-fit">
                 <span className="flex items-center gap-2 px-4 py-2 border-r border-border">
-                  <Globe className="w-4 h-4 text-primary" /> ZURICH
+                  <MapPin className="w-4 h-4 text-primary" /> ZURICH <span className="text-muted-foreground/60 text-xs">(prev. London & NYC)</span>
                 </span>
                 <span className="flex items-center gap-2 px-4 py-2">
-                  <MapPin className="w-4 h-4 text-primary" /> ARGENTINA
+                  🏠 ARGENTINA
                 </span>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
