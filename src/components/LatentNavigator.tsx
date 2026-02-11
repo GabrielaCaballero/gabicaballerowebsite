@@ -103,7 +103,8 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < obs.size) {
             if (obs.type === "noise") {
-              setGameState("over");
+              setScore((s) => Math.max(0, s - 10));
+              return false;
             } else if (obs.type === "flag") {
               setScore((s) => s + 15);
               return false;
