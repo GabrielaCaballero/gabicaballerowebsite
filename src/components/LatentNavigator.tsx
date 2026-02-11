@@ -152,6 +152,13 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
           </button>
         </div>
 
+        {/* Instructions */}
+        <div className="px-4 py-3 border-b border-border bg-muted/30">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            <span className="text-primary font-bold">How to play:</span> Press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↑</kbd> or <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">Space</kbd> to fly up, <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↓</kbd> to dive. Collect <span className="text-foreground font-bold">white symbols</span> (data points) to boost accuracy. Avoid <span className="text-destructive font-bold">red symbols</span> (noise) or your model overfits!
+          </p>
+        </div>
+
         <div className="relative">
           <canvas
             ref={canvasRef}

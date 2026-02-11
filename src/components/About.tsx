@@ -51,13 +51,18 @@ const About = () => {
                 experiences by bridging deep technical strategy with user-centric
                 design.
               </p>
-              <button
-                onClick={() => setShowGame(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 rounded-2xl font-black flex items-center gap-3 transition-all shadow-xl shadow-primary/20 group uppercase tracking-widest text-xs"
-              >
-                ENTER LATENT SPACE
-                <Rocket className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <div className="space-y-3">
+                <p className="text-sm text-muted-foreground italic">
+                  If you made it this far out of pure curiosity (or boredom), here's a mini-game where you can pretend you're training an ML model. You're welcome. 🚀
+                </p>
+                <button
+                  onClick={() => setShowGame(true)}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-5 rounded-2xl font-black flex items-center gap-3 transition-all shadow-xl shadow-primary/20 group uppercase tracking-widest text-xs"
+                >
+                  ENTER LATENT SPACE
+                  <Rocket className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
             </motion.div>
 
             <motion.div
