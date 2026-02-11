@@ -28,7 +28,7 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
     interface Obstacle {
       x: number;
       y: number;
-      type: "point" | "noise";
+      type: "point" | "noise" | "flag";
       symbol: string;
       speed: number;
       size: number;
@@ -36,14 +36,27 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
 
     let obstacles: Obstacle[] = [];
 
-    const createObstacle = (): Obstacle => ({
-      x: canvas.width,
-      y: Math.random() * (canvas.height - 40) + 20,
-      type: Math.random() > 0.4 ? "point" : "noise",
-      symbol: symbols[Math.floor(Math.random() * symbols.length)],
-      speed: 4 + Math.random() * 2,
-      size: Math.random() > 0.4 ? 22 : 28,
-    });
+    const createObstacle = (): Obstacle => {
+      const rand = Math.random();
+      if (rand < 0.12) {
+        return {
+          x: canvas.width,
+          y: Math.random() * (canvas.height - 40) + 20,
+          type: "flag",
+          symbol: "🇦🇷",
+          speed: 3 + Math.random() * 2,
+          size: 28,
+        };
+      }
+      return {
+        x: canvas.width,
+        y: Math.random() * (canvas.height - 40) + 20,
+        type: rand > 0.52 ? "point" : "noise",
+        symbol: symbols[Math.floor(Math.random() * symbols.length)],
+        speed: 4 + Math.random() * 2,
+        size: Math.random() > 0.4 ? 22 : 28,
+      };
+    };
 
     const drawPlane = (y: number) => {
       ctx.save();
@@ -91,13 +104,16 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
           if (dist < obs.size) {
             if (obs.type === "noise") {
               setGameState("over");
+            } else if (obs.type === "flag") {
+              setScore((s) => s + 15);
+              return false;
             } else {
               setScore((s) => s + 5);
               return false;
             }
           }
-          ctx.fillStyle = obs.type === "noise" ? "#ef4444" : "#ffffff";
-          ctx.font = `bold ${obs.size}px monospace`;
+          ctx.fillStyle = obs.type === "noise" ? "#ef4444" : obs.type === "flag" ? "#ffffff" : "#ffffff";
+          ctx.font = `${obs.type === "flag" ? "" : "bold "}${obs.size}px ${obs.type === "flag" ? "serif" : "monospace"}`;
           ctx.fillText(obs.symbol, obs.x, obs.y);
           return obs.x > -50;
         });
@@ -155,7 +171,7 @@ const LatentNavigator = ({ onClose }: LatentNavigatorProps) => {
         {/* Instructions */}
         <div className="px-4 py-3 border-b border-border bg-muted/30">
           <p className="text-xs text-muted-foreground leading-relaxed">
-            <span className="text-primary font-bold">How to play:</span> Press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↑</kbd> or <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">Space</kbd> to fly up, <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↓</kbd> to dive. Collect <span className="text-foreground font-bold">white symbols</span> (data points) to boost accuracy. Avoid <span className="text-destructive font-bold">red symbols</span> (noise) or your model overfits!
+            <span className="text-primary font-bold">How to play:</span> Press <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↑</kbd> or <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">Space</kbd> to fly up, <kbd className="px-1.5 py-0.5 rounded bg-muted border border-border text-[10px] font-mono">↓</kbd> to dive. Collect <span className="text-foreground font-bold">white symbols</span> (+5 pts). Catch <span className="font-bold">🇦🇷 flags</span> for <span className="text-primary font-bold">triple points</span>! Avoid <span className="text-destructive font-bold">red symbols</span> (noise) or your model overfits!
           </p>
         </div>
 
