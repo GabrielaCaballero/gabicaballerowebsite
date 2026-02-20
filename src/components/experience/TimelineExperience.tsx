@@ -22,14 +22,14 @@ const TIMELINE_DATA = [
     color: "from-red-600 to-rose-500",
     iconName: "youtube" as const,
     summary:
-      "Spearheading SVC v6 and PDM v9 models. Boosting detection coverage and launching Timed Experiences.",
+      "Gave AI 'world-sensing' capabilities to make millions of videos shoppable. Led Product Detection Model and Multimodal Classifiers using Gemini-based models, and launched Interactive TV Shopping.",
     bgImage:
       "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&q=80&w=1200",
     achievements: [
-      "Drove SVC v6 strategy: +13% expansion of shopping corpus.",
-      "Led PDM v9 launch: Increased coverage to 35.5% at 85% precision.",
-      "Launched Timestamps v2: ML-powered auto-timestamps.",
-      "Interactive TV Shopping: +6000% lift in clicks.",
+      "Expanded shopping videos corpus by 13% and grew AI precision from 11% to 35.5%.",
+      "11.5% lift in user engagement through improved detection models.",
+      "Launched Interactive TV Shopping: +6000% engagement on products on TV.",
+      "Solved the design challenge of making shopping feel natural on lean-back TV devices.",
     ],
     humor:
       "Living in Zurich has made her appreciate nature more—she actually takes pictures of cows and flowers now! She spends her time running, exploring the mountains, swimming in the lake during summer, and indulging in plenty of local cheese and chocolate.",
@@ -83,13 +83,13 @@ const TIMELINE_DATA = [
     color: "from-emerald-600 to-green-500",
     iconName: "sheets" as const,
     summary:
-      "0-to-1 initiatives for AI-powered data management in Google Sheets.",
+      "0-to-1 product design: spearheaded 'Tables' in Google Sheets, a fundamental shift from 'cells' to 'structured objects' for billions of users.",
     bgImage:
       "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=1200",
     achievements: [
-      "Led 'Tables' end-to-end: 5% lift in north-star metrics.",
-      "Conditional Notifications: 80% user satisfaction rate.",
-      "Apps Script Roadmap: Integrated Generative AI.",
+      "+35% increase in user retention for data-heavy workflows.",
+      "Navigated the tension between advanced functionality and clean, intuitive UI.",
+      "Laid the foundation structure for Sheets AI features.",
     ],
     humor:
       "As a Harry Potter fan, she fell in love with London life—West End shows, Italian pasta, and running through the parks. She especially enjoyed \"smelly pubs\" with excellent beer and the heavenly cream the British put on their scones during tea time.",
@@ -134,12 +134,11 @@ const TIMELINE_DATA = [
     color: "from-orange-600 to-amber-500",
     iconName: "map" as const,
     summary:
-      "Launched ML photo carousels for menu detection and celebrated a Masters Milestone.",
+      "Leveraged AI for personalization and user growth. Owned the strategy for improving semantic search results using UGC and visual-first results on Google Maps.",
     bgImage:
       "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80&w=1200",
     achievements: [
-      "ML Photo Carousel: 20% interaction rate.",
-      "Street View 15th: 6M+ opt-ins.",
+      "Increased search results interaction by 5% and decreased manual refinements by 20%.",
       "MS in Management of Tech: 3.9 GPA at NYU.",
       "Data Researcher @ Furman Center: Reduced processing times by 20%.",
     ],
